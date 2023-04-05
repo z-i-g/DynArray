@@ -23,10 +23,10 @@ class DynArrayTest {
 
     @Test
     public void insert_thenInsertAnInvalidPosition() {
-        assertThrows(IllegalArgumentException.class, () -> dynArray.insert(1, -1));
-        assertThrows(IllegalArgumentException.class, () -> dynArray.insert(1, 1));
+        assertThrows(IndexOutOfBoundsException.class, () -> dynArray.insert(1, -1));
+        assertThrows(IndexOutOfBoundsException.class, () -> dynArray.insert(1, 1));
         dynArray.insert(1, 0);
-        assertThrows(IllegalArgumentException.class, () -> dynArray.insert(1, 2));
+        assertThrows(IndexOutOfBoundsException.class, () -> dynArray.insert(1, 2));
     }
 
     @Test
@@ -73,8 +73,8 @@ class DynArrayTest {
 
     @Test
     public void remove_thenRemoveAnInvalidPosition1() {
-        assertThrows(IllegalArgumentException.class, () -> dynArray.remove(-1));
-        assertThrows(IllegalArgumentException.class, () -> dynArray.remove(1));
+        assertThrows(IndexOutOfBoundsException.class, () -> dynArray.remove(-1));
+        assertThrows(IndexOutOfBoundsException.class, () -> dynArray.remove(1));
     }
 
     @Test

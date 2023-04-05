@@ -27,7 +27,7 @@ public class DynArray<T> {
     public T getItem(int index)
     {
         if (indexIsOutOfAcceptableLimits(index))
-            throw new IndexOutOfBoundsException();
+            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + count);
         return array[index];
     }
 
@@ -43,7 +43,7 @@ public class DynArray<T> {
     public void insert(T itm, int index)
     {
         if (indexIsOutOfAcceptableLimits(index))
-            throw new IllegalArgumentException();
+            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + count);
         if (capacity == count) {
             makeArray(capacity * 2);
         }
@@ -62,7 +62,7 @@ public class DynArray<T> {
     public void remove(int index)
     {
         if (index < 0 || index >= count)
-            throw new IllegalArgumentException();
+            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + count);
         if (index == count - 1) {
             array[index] = null;
         } else {
